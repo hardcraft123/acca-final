@@ -2,9 +2,9 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import futureskillsbanner from "../assets/image/futureskillsbanner.png";
 import accaflashcard from "../assets/image/accaflashcard.png";
-import sustain1 from "../assets/image/sustain1.png";
-import img3 from "../assets/image/img3.png";
-import futurebold from "../assets/image/futurebold.png";
+import sustainlight from "../assets/image/sustainlight.png";
+import inno from "../assets/image/inno.png";
+import futuredark from "../assets/image/futuredark.png";
 import what111 from "../assets/image/what111.png"
 import theme3 from "../assets/image/theme3.png"
 import theme1 from "../assets/image/theme1.png"
@@ -327,21 +327,21 @@ const future = () => {
               </a>
               <a href="/sustainable" className="cursor-pointer block img-class">
                 <img
-                  src={sustain1}
+                  src={sustainlight}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
               <a href="/innovative" className="cursor-pointer block">
                 <img
-                  src={img3}
+                  src={inno}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
               <a href="#" className="cursor-pointer block img-class">
                 <img
-                  src={futurebold}
+                  src={futuredark}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />

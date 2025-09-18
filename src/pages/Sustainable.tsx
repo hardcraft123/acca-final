@@ -2,8 +2,8 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import sustain from "../assets/image/sustain.png";
 import accaflashcard from "../assets/image/accaflashcard.png";
-import img2 from "../assets/image/img2.png";
-import img3 from "../assets/image/img3.png";
+import sustaindark from "../assets/image/sustaindark.png";
+import inno from "../assets/image/inno.png";
 import img4 from "../assets/image/img4.png";
 import rightbanner from "../assets/image/rightbanner.png"
 import theme1 from "../assets/image/theme1.png"
@@ -319,14 +319,14 @@ const Sustainable = () => {
               </a>
               <a href="" className="cursor-pointer block img-class">
                 <img
-                  src={img2}
+                  src={sustaindark}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
               <a href="/innovative" className="cursor-pointer block">
                 <img
-                  src={img3}
+                  src={inno}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />

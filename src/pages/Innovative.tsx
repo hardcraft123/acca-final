@@ -2,8 +2,8 @@ import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
 import innobanner from "../assets/image/innobanner.png";
 import accaflashcard from "../assets/image/accaflashcard.png";
-import sustain1 from "../assets/image/sustain1.png";
-import innovative1 from "../assets/image/innovative1.png";
+import sustain10 from "../assets/image/sustain10.png";
+import innodark from "../assets/image/innodark.png";
 import future1 from "../assets/image/future1.png";
 import what11 from "../assets/image/what11.png"
 import theme3 from "../assets/image/theme3.png"
@@ -321,14 +321,14 @@ const Innovative = () => {
               </a>
               <a href="/sustainable" className="cursor-pointer block img-class">
                 <img
-                  src={sustain1}
+                  src={sustain10}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
               <a href="#" className="cursor-pointer block">
                 <img
-                  src={innovative1}
+                  src={innodark}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />

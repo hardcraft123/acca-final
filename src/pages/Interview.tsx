@@ -6,7 +6,7 @@ import interviewbanner from "../assets/image/interviewbanner.png";
 import sustainable from "../assets/image/sustainable.png";
 import innovative from "../assets/image/innovative.png";
 import future from "../assets/image/future.png";
-import ips from "../assets/image/ips.png";
+import accaflashcard from "../assets/image/accaflashcard.png";
 import videoicon from "../assets/image/videoicon.png";
 import { useNavigate } from 'react-router-dom';
 import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
@@ -264,9 +264,9 @@ const Interview = () => {
                                 </div>
                             </a>
 
-                            <a href="#" className="cursor-pointer block">
+                            <a href="/flashcards" className="cursor-pointer block">
                                 <img
-                                    src={ips}
+                                    src={accaflashcard}
                                     alt="Industrial welding background"
                                     className="w-full h-full object-cover ips-image"
                                 />

@@ -1680,3 +1680,9 @@ svg.lucide.lucide-x.h-4.w-4 {
     font-weight: 400;
     color: #1E1E1E;
 }
+a.cursor-pointer.block {
+    margin-top: 0px !important;
+}
+.cursor-pointer.back-to-home.group {
+    margin-bottom: 15px;
+}

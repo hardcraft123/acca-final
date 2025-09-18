@@ -4,7 +4,7 @@ import flashcard from "../assets/image/flashcard.png";
 import sustainable from "../assets/image/sustainable.png";
 import innovative from "../assets/image/innovative.png";
 import future from "../assets/image/future.png";
-import ips from "../assets/image/ips.png";
+import ips3 from "../assets/image/ips3.png";
 import { useNavigate } from 'react-router-dom';
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
@@ -78,7 +78,7 @@ const Flashcards = () => {
                             </a>
                             <a href="/interview" className="cursor-pointer block">
                                 <img
-                                    src={ips}
+                                    src={ips3}
                                     alt="Industrial welding background"
                                     className="w-full h-full object-cover ips-image"
                                 />
