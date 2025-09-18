@@ -3,7 +3,7 @@ import Footer from "@/components/ui/Footer";
 import innobanner from "../assets/image/innobanner.png";
 import accaflashcard from "../assets/image/accaflashcard.png";
 import sustain10 from "../assets/image/sustain10.png";
-import innodark from "../assets/image/innodark.png";
+import innovativedark from "../assets/image/innovativedark.png";
 import future1 from "../assets/image/future1.png";
 import what11 from "../assets/image/what11.png"
 import theme3 from "../assets/image/theme3.png"
@@ -328,7 +328,7 @@ const Innovative = () => {
               </a>
               <a href="#" className="cursor-pointer block">
                 <img
-                  src={innodark}
+                  src={innovativedark}
                   alt="Industrial welding background"
                   className="w-full h-full object-cover ips-image"
                 />
