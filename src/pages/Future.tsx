@@ -16,7 +16,10 @@ import fwhoflashcard from "../assets/image/fwhoflashcard.pdf";
 import fwhereflashcard from "../assets/image/fwhereflashcard.pdf";
 import fhowflashcard from "../assets/image/fhowflashcard.pdf";
 import fwhyflashcard from "../assets/image/fwhyflashcard.pdf";
-import Learn_more from "../assets/image/Learn_more.pdf";
+import futurewhat from "../assets/image/futurewhat.pdf";
+import futurewhy from "../assets/image/futurewhy.pdf";
+import futurewho from "../assets/image/futurewho.pdf";
+import futurewhere from "../assets/image/futurewhere.pdf";
 import { FiSearch, FiUser, FiMapPin, FiSettings } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { useState, useRef, useEffect } from "react";
@@ -60,6 +63,35 @@ const future = () => {
   const buttonRefs = useRef<{ [key: number]: HTMLButtonElement | null }>({});
 
   const popupRef = useRef<HTMLDivElement | null>(null); // Ref for popup
+
+  // Popup sizes configuration - customize these as needed
+  const popupSizes = {
+    what: {
+      1: '450px',  // Icon 1 width for What tab
+      2: '400px',  // Icon 2 width for What tab
+      3: '470px'   // Icon 3 width for What tab
+    },
+    why: {
+      1: '500px',  // Icon 1 width for Why tab
+      2: '500px',  // Icon 2 width for Why tab
+      3: '480px'   // Icon 3 width for Why tab
+    },
+    who: {
+      1: '500px',  // Icon 1 width for Who tab
+      2: '700px',  // Icon 2 width for Who tab
+      3: '460px'   // Icon 3 width for Who tab
+    },
+    where: {
+      1: '490px',  // Icon 1 width for Where tab
+      2: '450px',  // Icon 2 width for Where tab
+      3: '470px'   // Icon 3 width for Where tab
+    },
+    how: {
+      1: '500px',  // Icon 1 width for How tab
+      2: '500px',  // Icon 2 width for How tab
+      3: '450px'   // Icon 3 width for How tab
+    }
+  };
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -111,9 +143,10 @@ const future = () => {
   const contentData = {
     what: {
       title: "What are the key qualities of a finance leader?",
-      description: "To lead through uncertainty and complexity, today’s CFOs must cultivate five integrative thinking capabilities: continually becoming, empathising, exploring, co-creating, and empowering. These interconnected capabilities support leadership that is adaptive, inclusive and value-driven.",
+      description: "To lead through uncertainty and complexity, today's CFOs must cultivate five integrative thinking capabilities: continually becoming, empathising, exploring, co-creating, and empowering. These interconnected capabilities support leadership that is adaptive, inclusive and value-driven.",
       image: what111,
       downloadLink: fwhatflashcard,
+      learnMoreLink: futurewhat, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-6 left-1", // Top left
@@ -131,6 +164,7 @@ const future = () => {
       description: "The future-fit CFO must be adaptable to effectively guide their organisation through complex, interconnected risks while identifying new opportunities. \nAs custodians of critical strategic information, adaptable CFOs are better equipped to ensure transparency, drive agile decision-making, and uphold accountability in a rapidly changing business landscape.",
       image: why111,
       downloadLink: fwhyflashcard,
+      learnMoreLink: futurewhy, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-5 left-1", // Top left
@@ -145,9 +179,10 @@ const future = () => {
     },
     who: {
       title: "Who are the key recipients of an organisation's value?",
-      description: "Finance leaders must consider a broad range of stakeholders who benefit from the organisation’s performance. These include investors, customers, employees, communities and regulators. Creating sustainable value across all groups is fundamental to long-term business success and responsible leadership.",
+      description: "Finance leaders must consider a broad range of stakeholders who benefit from the organisation's performance. These include investors, customers, employees, communities and regulators. Creating sustainable value across all groups is fundamental to long-term business success and responsible leadership.",
       image: who111,
       downloadLink: fwhoflashcard,
+      learnMoreLink: futurewho, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-2 left-6", // Top left
@@ -161,10 +196,11 @@ const future = () => {
       ],
     },
     where: {
-      title: "Where are finance professionals’ roles changing?",
+      title: "Where are finance professionals' roles changing?",
       description: "CFOs are expanding their influence across eight critical areas including strategy and business acumen, risk and control, technology and data, leadership, supply chain, investor management, consulting, and transactions. This shift reflects the evolving demands on finance professionals to lead digital transformation, drive sustainable value, and navigate complexity with confidence. As innovation continues to reshape business, developing the right capabilities across these areas is essential to staying competitive and future-ready.",
       image: where111,
       downloadLink: fwhereflashcard,
+      learnMoreLink: futurewhere, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-8 left-8", // Top left
@@ -182,6 +218,7 @@ const future = () => {
       description: "As technology, especially AI, reshapes roles, it's important to support the development of both digital capabilities and human-centred skills like creativity and judgement. Additionally, employers need to recognise that many employees are seeking better pay and clearer growth opportunities, often looking outside their organisations when these aren't available internally.",
       image: How111,
       downloadLink: fhowflashcard,
+      learnMoreLink: "https://stories.accaglobal.com/career-ladder-and-variety-of-work/index.html", // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-5 left-5", // Top left
@@ -386,13 +423,13 @@ const future = () => {
                   </h2>
 
                   <p className="tabs-para">
-                    {content.description}
+                    {content.description} 
                   </p>
 
                   <div className="flex space-x-6 pt-4 tabs-links">
                     <span className="flex">
                       <a
-                        href={Learn_more}
+                        href={content.learnMoreLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-200 flex items-center"
@@ -448,7 +485,7 @@ const future = () => {
                               ref={popupRef}
                               className="absolute top-full right-0 mt-2 z-50 bg-white shadow-2xl overflow-hidden mobile-popup-center"
                               style={{
-                                width: iconNumber === 2 ? '530px' : iconNumber === 3 ? '470px' : '470px',
+                                width: popupSizes[activePopup.tab as keyof typeof popupSizes][activePopup.icon as keyof typeof popupSizes[keyof typeof popupSizes]],
                                 maxWidth: '90vw',
                                 ...(iconNumber === 3 && { right: '-45px' })
                               }}

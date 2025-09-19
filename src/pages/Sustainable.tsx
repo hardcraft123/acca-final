@@ -112,6 +112,7 @@ const Sustainable = () => {
       description: "Sustainable finance refers to financial tools and investments that support environmentally sustainable and socially responsible business practices. It promotes long-term value by integrating economic viability, social equity, and environmental protection into financial decision making.",
       image: rightbanner,
       downloadLink: swflashcard1, // What tab download link
+      learnMoreLink: Learn_more, // What tab learn more link
       visibleIcons: [1, 2, 3], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-4 left-0", // Top right
@@ -123,12 +124,18 @@ const Sustainable = () => {
         { id: 2, src: what1, alt: "What popup image 2" },
         { id: 3, src: what3, alt: "What popup image 3" },
       ],
+      popupSizes: {
+        1: { width: '400px', rightOffset: '0px' }, // What tab, icon 1
+        2: { width: '500px', rightOffset: '0px' }, // What tab, icon 2
+        3: { width: '500px', rightOffset: '0px' }, // What tab, icon 3
+      },
     },
     why: {
       title: "Why the need to implement sustainability?",
       description: "Climate and sustainability are significant drivers for organisations, both large and small. As governments recognise the need to address the climate emergency, organisations must respond with their own plans to achieve carbon neutrality, net-zero, or similar defined targets.",
       image: why,
       downloadLink: swhyflashcard1, // You can replace this with why-specific PDF when available
+      learnMoreLink: Learn_more, // Why tab learn more link - you can change this to a different URL
       visibleIcons: [1, 2, 3], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-4 left-4", // Top left
@@ -140,25 +147,35 @@ const Sustainable = () => {
         { id: 2, src: why000, alt: "Why popup image 2" },
         { id: 3, src: why00, alt: "Why popup image 3" },
       ],
+      popupSizes: {
+        1: { width: '500px', rightOffset: '0px' }, // Why tab, icon 1
+        2: { width: '550px', rightOffset: '0px' }, // Why tab, icon 2
+        3: { width: '600px', rightOffset: '0px' }, // Why tab, icon 3
+      },
     },
     who: {
       title: "Who creates the ESG framework?",
       description: "Accountants, in collaboration with sustainability leads and senior leadership, play a key role in creating ESG frameworks. They define material risks, set measurable KPIs, and ensure transparent disclosures, aligning ESG with strategy, reporting standards and investor expectations.",
       image: who,
       downloadLink: swhoflashcard1, // You can replace this with who-specific PDF when available
+      learnMoreLink: Learn_more, // Who tab learn more link - you can change this to a different URL
       visibleIcons: [1], // Only show icons 1 and 2 for this tab
       iconPositions: {
         1: "top-1/2 left-4 transform -translate-y-1/2", // Middle left
       },
       popupImages: [
-        { id: 1, src: who0, alt: "Why popup image 1" },
+        { id: 1, src: who0, alt: "Who popup image 1" },
       ],
+      popupSizes: {
+        1: { width: '500px', rightOffset: '0px' }, // Who tab, icon 1
+      },
     },
     where: {
       title: "Where does accountancy play a role in ESG?",
       description: "Accountants are central to the ESG journey. They provide the frameworks, assurance and reporting expertise needed to drive meaningful sustainability outcomes. Their work touches strategy, risk, compliance, and decision support.",
       image: where,
       downloadLink: swhflashcard1, // You can replace this with where-specific PDF when available
+      learnMoreLink: Learn_more, // Where tab learn more link - you can change this to a different URL
       visibleIcons: [1, 2, 3], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-0 left-0", // Top left
@@ -166,16 +183,22 @@ const Sustainable = () => {
         3: "top-50% right-0 ", // Middle right
       },
       popupImages: [
-        { id: 1, src: where0, alt: "Why popup image 1" },
-        { id: 2, src: where000, alt: "Why popup image 2" },
-        { id: 3, src: where00, alt: "Why popup image 3" },
+        { id: 1, src: where0, alt: "Where popup image 1" },
+        { id: 2, src: where000, alt: "Where popup image 2" },
+        { id: 3, src: where00, alt: "Where popup image 3" },
       ],
+      popupSizes: {
+        1: { width: '500px', rightOffset: '0px' }, // Where tab, icon 1
+        2: { width: '550px', rightOffset: '0px' }, // Where tab, icon 2
+        3: { width: '400px', rightOffset: '00px' }, // Where tab, icon 3
+      },
     },
     how: {
       title: "How do organisations embed sustainability?",
       description: "Organisations embed sustainability by aligning ESG goals with strategy, ensuring governance oversight, using credible data, adopting green finance, and building team capabilities. Finance professionals play a key role in integrating ESG across planning, risk and reporting.",
       image: How,
       downloadLink: shflashcard1, // You can replace this with how-specific PDF when available
+      learnMoreLink: Learn_more, // How tab learn more link - you can change this to a different URL
       visibleIcons: [1, 2], // Only show icons 1 and 2 for this tab
       iconPositions: {
         1: "bottom-4 left-4", // Bottom left
@@ -185,6 +208,10 @@ const Sustainable = () => {
         { id: 1, src: how00, alt: "How popup image 1" },
         { id: 2, src: how0, alt: "How popup image 2" },
       ],
+      popupSizes: {
+        1: { width: '480px', rightOffset: '0px' }, // How tab, icon 1
+        2: { width: '740px', rightOffset: '-25px' }, // How tab, icon 2
+      },
     },
   };
 
@@ -384,7 +411,7 @@ const Sustainable = () => {
                   <div className="flex space-x-6 pt-4 tabs-links">
                     <span className="flex">
                       <a
-                        href={Learn_more}
+                        href={content.learnMoreLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-200 flex items-center"
@@ -440,9 +467,9 @@ const Sustainable = () => {
                               ref={popupRef}
                               className="absolute top-full right-0 mt-2 z-50 bg-white shadow-2xl overflow-hidden mobile-popup-center"
                               style={{
-                                width: iconNumber === 2 ? '600px' : iconNumber === 3 ? '550px' : '470px',
+                                width: content.popupSizes[iconNumber]?.width || '470px',
                                 maxWidth: '90vw',
-                                ...(iconNumber === 3 && { right: '-45px' })
+                                right: content.popupSizes[iconNumber]?.rightOffset || '0px'
                               }}
                             >
                               <div className="relative">
