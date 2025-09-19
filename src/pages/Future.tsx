@@ -16,10 +16,10 @@ import fwhoflashcard from "../assets/image/fwhoflashcard.pdf";
 import fwhereflashcard from "../assets/image/fwhereflashcard.pdf";
 import fhowflashcard from "../assets/image/fhowflashcard.pdf";
 import fwhyflashcard from "../assets/image/fwhyflashcard.pdf";
-import futurewhat1 from "../assets/image/futurewhat1.pdf";
+import futurewhat2 from "../assets/image/futurewhat2.pdf";
 import futurewhy1 from "../assets/image/futurewhy1.pdf";
 import futurewho1 from "../assets/image/futurewho1.pdf";
-import futurewhere1 from "../assets/image/futurewhere1.pdf";
+import futurewhere2 from "../assets/image/futurewhere2.pdf";
 import { FiSearch, FiUser, FiMapPin, FiSettings } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { useState, useRef, useEffect } from "react";
@@ -146,7 +146,7 @@ const future = () => {
       description: "To lead through uncertainty and complexity, today's CFOs must cultivate five integrative thinking capabilities: continually becoming, empathising, exploring, co-creating, and empowering. These interconnected capabilities support leadership that is adaptive, inclusive and value-driven.",
       image: what111,
       downloadLink: fwhatflashcard,
-      learnMoreLink: futurewhat1, // What tab learn more link
+      learnMoreLink: futurewhat2, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-6 left-1", // Top left
@@ -200,7 +200,7 @@ const future = () => {
       description: "CFOs are expanding their influence across eight critical areas including strategy and business acumen, risk and control, technology and data, leadership, supply chain, investor management, consulting, and transactions. This shift reflects the evolving demands on finance professionals to lead digital transformation, drive sustainable value, and navigate complexity with confidence. As innovation continues to reshape business, developing the right capabilities across these areas is essential to staying competitive and future-ready.",
       image: where111,
       downloadLink: fwhereflashcard,
-      learnMoreLink: futurewhere1, // What tab learn more link
+      learnMoreLink: futurewhere2, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
       iconPositions: {
         1: "top-8 left-8", // Top left
