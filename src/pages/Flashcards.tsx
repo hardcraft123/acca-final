@@ -1,4 +1,3 @@
-
 import bannerImage from "../assets/image/banner.png";
 import flashcard from "../assets/image/flashcard.png";
 import sustainable from "../assets/image/sustainable.png";
@@ -16,14 +15,14 @@ const Flashcards = () => {
 
     const navigate = useNavigate();
 
-
+    // **MODIFIED: Updated handleDrop to pass state indicating navigation from flashcard**
     const handleDrop = (e: React.DragEvent) => {
         e.preventDefault();
         const theme = e.dataTransfer.getData("theme");
 
-        if (theme === "sustainable") navigate("/sustainable");
-        else if (theme === "innovative") navigate("/innovative");
-        else if (theme === "future") navigate("/future");
+        if (theme === "sustainable") navigate("/sustainable", { state: { fromFlashcard: true } });
+        else if (theme === "innovative") navigate("/innovative", { state: { fromFlashcard: true } });
+        else if (theme === "future") navigate("/future", { state: { fromFlashcard: true } });
     };
 
 
@@ -149,7 +148,7 @@ const Flashcards = () => {
                             </div>
 
 
-                            {/* For mobile */}
+                            {/* For mobile - **MODIFIED: Updated mobile links to pass state** */}
                             <div className="space-y-4 mobile-cards">
 
 
@@ -159,7 +158,13 @@ const Flashcards = () => {
                                     draggable
                                     onDragStart={(e) => e.dataTransfer.setData("theme", "sustainable")}
                                 >
-                                    <a href="/sustainable">
+                                    <a 
+                                        href="/sustainable" 
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            navigate("/sustainable", { state: { fromFlashcard: true } });
+                                        }}
+                                    >
                                         <img
                                             src={sustainable}
                                             alt="Sustainable business"
@@ -174,7 +179,13 @@ const Flashcards = () => {
                                     draggable
                                     onDragStart={(e) => e.dataTransfer.setData("theme", "innovative")}
                                 >
-                                    <a href="/innovative">
+                                    <a 
+                                        href="/innovative" 
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            navigate("/innovative", { state: { fromFlashcard: true } });
+                                        }}
+                                    >
                                         <img
                                             src={innovative}
                                             alt="Innovative tech"
@@ -189,7 +200,13 @@ const Flashcards = () => {
                                     draggable
                                     onDragStart={(e) => e.dataTransfer.setData("theme", "future")}
                                 >
-                                    <a href="/future">
+                                    <a 
+                                        href="/future" 
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            navigate("/future", { state: { fromFlashcard: true } });
+                                        }}
+                                    >
                                         <img
                                             src={future}
                                             alt="Future skills"

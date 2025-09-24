@@ -53,6 +53,8 @@ import fwhere2 from "../assets/image/fwhere2.png"
 import fhow1 from "../assets/image/fhow1.png"
 import fhow2 from "../assets/image/fhow2.png"
 import backtohome from "../assets/image/backtohome.png";
+import { useLocation } from "react-router-dom"; // **ADDED: Import useLocation to check navigation source**
+
 
 
 const future = () => {
@@ -93,6 +95,11 @@ const future = () => {
     }
   };
 
+    // **ADDED: Get location to check if user came from flashcard page**
+    const location = useLocation();
+    const cameFromFlashcard = location.state?.fromFlashcard === true;
+  
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
@@ -109,22 +116,30 @@ const future = () => {
     };
   }, [activePopup]); // Only run effect when popup changes
 
+
   useEffect(() => {
-    // Start pink box animation immediately
-    const timer1 = setTimeout(() => {
+    // **MODIFIED: Only run pink box animation if user came from flashcard page**
+    if (cameFromFlashcard) {
+      // Start pink box animation immediately
+      const timer1 = setTimeout(() => {
+        setShowPinkBox(false);
+      }, 1200); // Pink box visible for 1.2 seconds, then starts fading
+
+      // Show content after pink box animation completes
+      const timer2 = setTimeout(() => {
+        setShowContent(true);
+      }, 800); // Content shows after 1.6 seconds
+
+      return () => {
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      };
+    } else {
+      // **ADDED: If not from flashcard, show content immediately without animation**
       setShowPinkBox(false);
-    }, 1200); // Pink box visible for 1.2 seconds, then starts fading
-
-    // Show content after pink box animation completes
-    const timer2 = setTimeout(() => {
       setShowContent(true);
-    }, 800); // Content shows after 1.6 seconds
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
-  }, []);
+    }
+  }, [cameFromFlashcard]); // **MODIFIED: Added cameFromFlashcard dependency**
 
   const tabs = [
     { id: "what", label: "What", icon: <FiSearch className="text-red-500" /> },

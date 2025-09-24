@@ -22,6 +22,7 @@ import { FiSearch, FiUser, FiMapPin, FiSettings } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { useState, useRef, useEffect } from "react";
 import { ArrowRight, Plus } from "lucide-react";
+import { useLocation } from "react-router-dom"; // **ADDED: Import useLocation to check navigation source**
 import why11 from "../assets/image/why11.png";
 import who11 from "../assets/image/who11.png";
 import where11 from "../assets/image/where11.png";
@@ -62,6 +63,10 @@ const Innovative = () => {
 
   const popupRef = useRef<HTMLDivElement | null>(null); // Ref for popup
 
+  // **ADDED: Get location to check if user came from flashcard page**
+  const location = useLocation();
+  const cameFromFlashcard = location.state?.fromFlashcard === true;
+
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
@@ -79,21 +84,28 @@ const Innovative = () => {
   }, [activePopup]); // Only run effect when popup changes
 
   useEffect(() => {
-    // Start pink box animation immediately
-    const timer1 = setTimeout(() => {
+    // **MODIFIED: Only run pink box animation if user came from flashcard page**
+    if (cameFromFlashcard) {
+      // Start pink box animation immediately
+      const timer1 = setTimeout(() => {
+        setShowPinkBox(false);
+      }, 1200); // Pink box visible for 1.2 seconds, then starts fading
+
+      // Show content after pink box animation completes
+      const timer2 = setTimeout(() => {
+        setShowContent(true);
+      }, 800); // Content shows after 1.6 seconds
+
+      return () => {
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      };
+    } else {
+      // **ADDED: If not from flashcard, show content immediately without animation**
       setShowPinkBox(false);
-    }, 1200); // Pink box visible for 1.2 seconds, then starts fading
-
-    // Show content after pink box animation completes
-    const timer2 = setTimeout(() => {
       setShowContent(true);
-    }, 800); // Content shows after 1.6 seconds
-
-    return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
-    };
-  }, []);
+    }
+  }, [cameFromFlashcard]); // **MODIFIED: Added cameFromFlashcard dependency**
 
   const tabs = [
     { id: "what", label: "What", icon: <FiSearch className="text-red-500" /> },
@@ -296,8 +308,8 @@ const Innovative = () => {
 
       <Header />
 
-      {/* Pink Box Animation */}
-      {showPinkBox && (
+      {/* Pink Box Animation - **MODIFIED: Only show if came from flashcard** */}
+      {showPinkBox && cameFromFlashcard && (
         <div className="fixed inset-0 z-50 pointer-events-none">
           <div className="pink-box-animation absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#FFD1DF] opacity-90"></div>
         </div>
