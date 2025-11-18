@@ -83,6 +83,21 @@ const Innovative = () => {
     };
   }, [activePopup]); // Only run effect when popup changes
 
+  // ESC key functionality to close popup
+  useEffect(() => {
+    function handleEscapeKey(event: KeyboardEvent) {
+      if (event.key === 'Escape' && activePopup) {
+        closePopup();
+      }
+    }
+
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [activePopup]);
+
   useEffect(() => {
     // **MODIFIED: Only run pink box animation if user came from flashcard page**
     if (cameFromFlashcard) {
@@ -330,7 +345,7 @@ const Innovative = () => {
         <div className="absolute inset-0">
           <img
             src={innobanner}
-            alt="Industrial welding background"
+            alt="Innovative Banner"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0"></div>

@@ -116,6 +116,20 @@ const future = () => {
     };
   }, [activePopup]); // Only run effect when popup changes
 
+  // ESC key functionality to close popup
+  useEffect(() => {
+    function handleEscapeKey(event: KeyboardEvent) {
+      if (event.key === 'Escape' && activePopup) {
+        closePopup();
+      }
+    }
+
+    document.addEventListener('keydown', handleEscapeKey);
+
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+    };
+  }, [activePopup]);
 
   useEffect(() => {
     // **MODIFIED: Only run pink box animation if user came from flashcard page**
@@ -333,8 +347,8 @@ const future = () => {
 
       <Header />
 
-      {/* Pink Box Animation */}
-      {showPinkBox && (
+      {/* Pink Box Animation - **MODIFIED: Only show if came from flashcard** */}
+      {showPinkBox && cameFromFlashcard && (
         <div className="fixed inset-0 z-50 pointer-events-none">
           <div className="pink-box-animation absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#FFD1DF] opacity-90"></div>
         </div>
@@ -345,7 +359,7 @@ const future = () => {
         <div className="absolute inset-0">
           <img
             src={futureskillsbanner}
-            alt="Industrial welding background"
+            alt="Future Skills Banner"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0"></div>
@@ -383,28 +397,28 @@ const future = () => {
               <a href="/flashcards" className="cursor-pointer block">
                 <img
                   src={accaflashcard}
-                  alt="Industrial welding background"
+                  alt="Acca Flashcards"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
               <a href="/sustainable" className="cursor-pointer block img-class">
                 <img
                   src={sustainlight}
-                  alt="Industrial welding background"
+                  alt="Sustainable Business"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
               <a href="/innovative" className="cursor-pointer block">
                 <img
                   src={inno}
-                  alt="Industrial welding background"
+                  alt="Innovative Tech"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
               <a href="#" className="cursor-pointer block img-class">
                 <img
                   src={futuredark}
-                  alt="Industrial welding background"
+                  alt="Future SKills"
                   className="w-full h-full object-cover ips-image"
                 />
               </a>
