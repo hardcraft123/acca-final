@@ -62,9 +62,9 @@ const Interview = () => {
     e.preventDefault();
     const theme = e.dataTransfer.getData("theme");
 
-    if (theme === "sustainable") navigate("/sustainable-business");
-    else if (theme === "innovative") navigate("/innovative-tech");
-    else if (theme === "future") navigate("/future-skills");
+    if (theme === "sustainable") navigate("/sustainable");
+    else if (theme === "innovative") navigate("/innovative");
+    else if (theme === "future") navigate("/future");
   };
 
   const videos = [
@@ -452,31 +452,31 @@ const Interview = () => {
                   {/* Interview Prep Series - Top Level (Active on this page) */}
                   <li
                     className={`border-t border-b border-gray-300 border-l-0 bg-white hover:bg-gray-50 ${
-                      currentRoute === "/interview-prep-series"
+                      currentRoute === "/interview"
                         ? "mr-[-1px]"
                         : ""
                     }`}
                   >
                     <div
                       className={
-                        currentRoute === "/interview-prep-series"
+                        currentRoute === "/interview"
                           ? ""
                           : "border-r-4 border-r-gray-400"
                       }
                     >
                       <a
-                        href="/interview-prep-series"
+                        href="/interview"
                         className={`
-              flex items-center px-3 py-2
-              min-h-[32px]
-              w-full
-              text-[13px] leading-4 ml-2
-              ${
-                currentRoute === "/interview-prep-series"
-                  ? "text-black font-semibold"
-                  : "text-gray-500 font-normal hover:text-gray-700"
-              }
-            `}
+                          flex items-center px-3 py-2
+                          min-h-[32px]
+                          w-full
+                          text-[13px] leading-4 ml-2
+                          ${
+                            currentRoute === "/interview"
+                              ? "text-black font-semibold"
+                              : "text-gray-500 font-normal hover:text-gray-700"
+                          }
+                        `}
                       >
                         Interview Prep Series
                       </a>
@@ -486,29 +486,29 @@ const Interview = () => {
                   {/* ACCA Flashcards - Top Level */}
                   <li
                     className={`border-b border-gray-300 border-l-0 bg-white hover:bg-gray-50 ${
-                      currentRoute === "/acca-flashcards" ? "mr-[-1px]" : ""
+                      currentRoute === "/flashcards" ? "mr-[-1px]" : ""
                     }`}
                   >
                     <div
                       className={
-                        currentRoute === "/acca-flashcards"
+                        currentRoute === "/flashcards"
                           ? ""
                           : "border-r-4 border-r-gray-400"
                       }
                     >
                       <a
-                        href="/acca-flashcards"
+                        href="/flashcards"
                         className={`
-              flex items-center px-3 py-2
-              min-h-[32px]
-              w-full
-              text-[13px] leading-4 ml-2
-              ${
-                currentRoute === "/acca-flashcards"
-                  ? "text-black font-medium"
-                  : "text-gray-500 font-normal hover:text-gray-700"
-              }
-            `}
+                          flex items-center px-3 py-2
+                          min-h-[32px]
+                          w-full
+                          text-[13px] leading-4 ml-2
+                          ${
+                            currentRoute === "/flashcards"
+                              ? "text-black font-medium"
+                              : "text-gray-500 font-normal hover:text-gray-700"
+                          }
+                        `}
                       >
                         ACCA Flashcards
                       </a>
