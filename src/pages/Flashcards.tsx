@@ -20,11 +20,11 @@ const Flashcards = () => {
     const theme = e.dataTransfer.getData("theme");
 
     if (theme === "sustainable")
-      navigate("/sustainable", { state: { fromFlashcard: true } });
+      navigate("/sustainable-business", { state: { fromFlashcard: true } });
     else if (theme === "innovative")
-      navigate("/innovative", { state: { fromFlashcard: true } });
+      navigate("/innovative-tech", { state: { fromFlashcard: true } });
     else if (theme === "future")
-      navigate("/future", { state: { fromFlashcard: true } });
+      navigate("/future-skills", { state: { fromFlashcard: true } });
   };
 
   return (
@@ -103,25 +103,25 @@ const Flashcards = () => {
                   {/* Interview Prep Series - Top Level */}
                   <li
                     className={`border-t border-b border-gray-300 border-l-0 bg-white hover:bg-gray-50 ${
-                      currentRoute === "/interview" ? "mr-[-1px]" : ""
+                      currentRoute === "/interview-prep-series" ? "mr-[-1px]" : ""
                     }`}
                   >
                     <div
                       className={
-                        currentRoute === "/interview"
+                        currentRoute === "/interview-prep-series"
                           ? ""
                           : "border-r-4 border-r-gray-400"
                       }
                     >
                       <a
-                        href="/interview"
+                        href="/interview-prep-series"
                         className={`
               flex items-center px-3 py-2
               min-h-[32px]
               w-full
               text-[13px] leading-4 ml-2
               ${
-                currentRoute === "/interview"
+                currentRoute === "/interview-prep-series"
                   ? "text-black font-medium"
                   : "text-gray-500 font-normal hover:text-gray-700"
               }
@@ -135,25 +135,25 @@ const Flashcards = () => {
                   {/* ACCA Flashcards - Top Level (Active on this page) */}
                   <li
                     className={`border-b border-gray-300 border-l-0 bg-white hover:bg-gray-50 ${
-                      currentRoute === "/flashcards" ? "mr-[-1px]" : ""
+                      currentRoute === "/acca-flashcards" ? "mr-[-1px]" : ""
                     }`}
                   >
                     <div
                       className={
-                        currentRoute === "/flashcards"
+                        currentRoute === "/acca-flashcards"
                           ? ""
                           : "border-r-4 border-r-gray-400"
                       }
                     >
                       <a
-                        href="/flashcards"
+                        href="/acca-flashcards"
                         className={`
               flex items-center px-3 py-2
               min-h-[32px]
               w-full
               text-[13px] leading-4 ml-2
               ${
-                currentRoute === "/flashcards"
+                currentRoute === "/acca-flashcards"
                   ? "text-black font-semibold"
                   : "text-gray-500 font-normal hover:text-gray-700"
               }
@@ -196,7 +196,7 @@ const Flashcards = () => {
                   aria-label="Open Sustainable Module"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
-                      navigate("/sustainable", {
+                      navigate("/sustainable-business", {
                         state: { fromFlashcard: true },
                       });
                     }
@@ -221,7 +221,7 @@ const Flashcards = () => {
                   aria-label="Open Sustainable Module"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
-                      navigate("/sustainable", {
+                      navigate("/sustainable-business", {
                         state: { fromFlashcard: true },
                       });
                     }
@@ -246,7 +246,7 @@ const Flashcards = () => {
                   aria-label="Open Sustainable Module"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
-                      navigate("/sustainable", {
+                      navigate("/sustainable-business", {
                         state: { fromFlashcard: true },
                       });
                     }
@@ -272,10 +272,10 @@ const Flashcards = () => {
                   }
                 >
                   <a
-                    href="/sustainable"
+                    href="/sustainable-business"
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate("/sustainable", {
+                      navigate("/sustainable-business", {
                         state: { fromFlashcard: true },
                       });
                     }}
@@ -297,10 +297,10 @@ const Flashcards = () => {
                   }
                 >
                   <a
-                    href="/innovative"
+                    href="/innovative-tech"
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate("/innovative", {
+                      navigate("/innovative-tech", {
                         state: { fromFlashcard: true },
                       });
                     }}
@@ -320,10 +320,10 @@ const Flashcards = () => {
                   onDragStart={(e) => e.dataTransfer.setData("theme", "future")}
                 >
                   <a
-                    href="/future"
+                    href="/future-skills"
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate("/future", { state: { fromFlashcard: true } });
+                      navigate("/future-skills", { state: { fromFlashcard: true } });
                     }}
                   >
                     <img
