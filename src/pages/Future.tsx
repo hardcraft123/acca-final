@@ -5,12 +5,12 @@ import accaflashcard from "../assets/image/accaflashcard.png";
 import sustainlight from "../assets/image/sustainlight.png";
 import inno from "../assets/image/inno.png";
 import futuredark from "../assets/image/futuredark.png";
-import what111 from "../assets/image/what111.png"
-import theme3 from "../assets/image/theme3.png"
-import theme1 from "../assets/image/theme1.png"
-import what1 from "../assets/image/what1.png"
-import what2 from "../assets/image/what2.png"
-import what3 from "../assets/image/what3.png"
+import what111 from "../assets/image/what111.png";
+import theme3 from "../assets/image/theme3.png";
+import theme1 from "../assets/image/theme1.png";
+import what1 from "../assets/image/what1.png";
+import what2 from "../assets/image/what2.png";
+import what3 from "../assets/image/what3.png";
 import fwhatflashcard from "../assets/image/fwhatflashcard.pdf";
 import fwhoflashcard from "../assets/image/fwhoflashcard.pdf";
 import fwhereflashcard from "../assets/image/fwhereflashcard.pdf";
@@ -23,6 +23,7 @@ import futurewhere2 from "../assets/image/futurewhere2.pdf";
 import { FiSearch, FiUser, FiMapPin, FiSettings } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
 import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { ArrowRight, Plus } from "lucide-react";
 import why111 from "../assets/image/why111.png";
 import who111 from "../assets/image/who111.png";
@@ -30,36 +31,37 @@ import where111 from "../assets/image/where111.png";
 import How111 from "../assets/image/how111.png";
 import { X } from "lucide-react";
 import bulb from "../assets/image/bulb.png";
-import person from "../assets/image/person.png"
+import person from "../assets/image/person.png";
 import arrow from "../assets/image/arrow.png";
 import leftarrow from "../assets/image/leftarrow.png";
-import why1 from "../assets/image/why1.png"
-import why2 from "../assets/image/why2.png"
-import why3 from "../assets/image/why3.png"
-import who1 from "../assets/image/who1.png"
-import where1 from "../assets/image/where1.png"
-import where2 from "../assets/image/where2.png"
-import where3 from "../assets/image/where3.png"
-import how1 from "../assets/image/how1.png"
-import how2 from "../assets/image/how2.png"
-import fwhat1 from "../assets/image/fwhat1.png"
-import fwhat2 from "../assets/image/fwhat2.png"
-import fwhy1 from "../assets/image/fwhy1.png"
-import fwhy2 from "../assets/image/fwhy2.png"
-import fwho1 from "../assets/image/fwho1.png"
-import fwho2 from "../assets/image/fwho2.png"
-import fwhere1 from "../assets/image/fwhere1.png"
-import fwhere2 from "../assets/image/fwhere2.png"
-import fhow1 from "../assets/image/fhow1.png"
-import fhow2 from "../assets/image/fhow2.png"
+import why1 from "../assets/image/why1.png";
+import why2 from "../assets/image/why2.png";
+import why3 from "../assets/image/why3.png";
+import who1 from "../assets/image/who1.png";
+import where1 from "../assets/image/where1.png";
+import where2 from "../assets/image/where2.png";
+import where3 from "../assets/image/where3.png";
+import how1 from "../assets/image/how1.png";
+import how2 from "../assets/image/how2.png";
+import fwhat1 from "../assets/image/fwhat1.png";
+import fwhat2 from "../assets/image/fwhat2.png";
+import fwhy1 from "../assets/image/fwhy1.png";
+import fwhy2 from "../assets/image/fwhy2.png";
+import fwho1 from "../assets/image/fwho1.png";
+import fwho2 from "../assets/image/fwho2.png";
+import fwhere1 from "../assets/image/fwhere1.png";
+import fwhere2 from "../assets/image/fwhere2.png";
+import fhow1 from "../assets/image/fhow1.png";
+import fhow2 from "../assets/image/fhow2.png";
 import backtohome from "../assets/image/backtohome.png";
-import { useLocation } from "react-router-dom"; // **ADDED: Import useLocation to check navigation source**
-
-
+import { icon } from "@fortawesome/fontawesome-svg-core";
 
 const future = () => {
   const [activeTab, setActiveTab] = useState("what");
-  const [activePopup, setActivePopup] = useState<{ tab: string; icon: number } | null>(null);
+  const [activePopup, setActivePopup] = useState<{
+    tab: string;
+    icon: number;
+  } | null>(null);
   const [showPinkBox, setShowPinkBox] = useState(true);
   const [showContent, setShowContent] = useState(false);
   const buttonRefs = useRef<{ [key: number]: HTMLButtonElement | null }>({});
@@ -69,65 +71,69 @@ const future = () => {
   // Popup sizes configuration - customize these as needed
   const popupSizes = {
     what: {
-      1: '450px',  // Icon 1 width for What tab
-      2: '400px',  // Icon 2 width for What tab
-      3: '470px'   // Icon 3 width for What tab
+      1: "450px", // Icon 1 width for What tab
+      2: "400px", // Icon 2 width for What tab
+      3: "470px", // Icon 3 width for What tab
     },
     why: {
-      1: '500px',  // Icon 1 width for Why tab
-      2: '500px',  // Icon 2 width for Why tab
-      3: '480px'   // Icon 3 width for Why tab
+      1: "500px", // Icon 1 width for Why tab
+      2: "500px", // Icon 2 width for Why tab
+      3: "480px", // Icon 3 width for Why tab
     },
     who: {
-      1: '500px',  // Icon 1 width for Who tab
-      2: '700px',  // Icon 2 width for Who tab
-      3: '460px'   // Icon 3 width for Who tab
+      1: "500px", // Icon 1 width for Who tab
+      2: "700px", // Icon 2 width for Who tab
+      3: "460px", // Icon 3 width for Who tab
     },
     where: {
-      1: '490px',  // Icon 1 width for Where tab
-      2: '450px',  // Icon 2 width for Where tab
-      3: '470px'   // Icon 3 width for Where tab
+      1: "490px", // Icon 1 width for Where tab
+      2: "450px", // Icon 2 width for Where tab
+      3: "470px", // Icon 3 width for Where tab
     },
     how: {
-      1: '500px',  // Icon 1 width for How tab
-      2: '500px',  // Icon 2 width for How tab
-      3: '450px'   // Icon 3 width for How tab
-    }
+      1: "500px", // Icon 1 width for How tab
+      2: "500px", // Icon 2 width for How tab
+      3: "450px", // Icon 3 width for How tab
+    },
   };
 
-    // **ADDED: Get location to check if user came from flashcard page**
-    const location = useLocation();
-    const cameFromFlashcard = location.state?.fromFlashcard === true;
-  
+  // **ADDED: Get location to check if user came from flashcard page**
+  const location = useLocation();
+  const cameFromFlashcard = location.state?.fromFlashcard === true;
+  const currentRoute = location.pathname;
+  // console.log("Current Route:", currentRoute);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target as Node)
+      ) {
         closePopup(); // Close popup on outside click
       }
     }
 
     if (activePopup) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [activePopup]); // Only run effect when popup changes
 
   // ESC key functionality to close popup
   useEffect(() => {
     function handleEscapeKey(event: KeyboardEvent) {
-      if (event.key === 'Escape' && activePopup) {
+      if (event.key === "Escape" && activePopup) {
         closePopup();
       }
     }
 
-    document.addEventListener('keydown', handleEscapeKey);
+    document.addEventListener("keydown", handleEscapeKey);
 
     return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener("keydown", handleEscapeKey);
     };
   }, [activePopup]);
 
@@ -160,123 +166,231 @@ const future = () => {
     {
       id: "why",
       label: "Why",
-      icon: <img src={bulb} alt="Why" className=" object-contain why-buttons" style={{ width: '10px' }} />,
+      icon: (
+        <img
+          src={bulb}
+          alt=""
+          className=" object-contain why-buttons"
+          style={{ width: "10px" }}
+        />
+      ),
     },
-    { id: "who", label: "Who", icon: <img src={person} alt="person" className="object-contain" style={{ width: '15px' }} />, },
-    { id: "where", label: "Where", icon: <FiMapPin className="text-red-500" /> },
+    {
+      id: "who",
+      label: "Who",
+      icon: (
+        <img
+          src={person}
+          alt=""
+          className="object-contain"
+          style={{ width: "15px" }}
+        />
+      ),
+    },
+    {
+      id: "where",
+      label: "Where",
+      icon: <FiMapPin className="text-red-500" />,
+    },
     { id: "how", label: "How", icon: <FiSettings className="text-red-500" /> },
   ];
-
-
 
   const contentData = {
     what: {
       title: "What are the key qualities of a finance leader?",
-      description: "To lead through uncertainty and complexity, today's CFOs must cultivate five integrative thinking capabilities: continually becoming, empathising, exploring, co-creating, and empowering. These interconnected capabilities support leadership that is adaptive, inclusive and value-driven.",
+      description:
+        "To lead through uncertainty and complexity, today's CFOs must cultivate five integrative thinking capabilities: continually becoming, empathising, exploring, co-creating, and empowering. These interconnected capabilities support leadership that is adaptive, inclusive and value-driven.",
       image: what111,
-      altText: "Aerial view of numerous small sailboats navigating across blue water, symbolising leadership through uncertainty.", // ✅ UPDATED: Separate alt text
+      altText:
+        "Aerial view of numerous small sailboats navigating across blue water", // ✅ UPDATED: Separate alt text
       downloadId: "fsdf1",
       learnMoreId: "fslm1",
       downloadLink: fwhatflashcard,
       learnMoreLink: futurewhat2, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
+      flashcardContent:
+        "Download the flashcard on What are the key qualities of a finance leader? (PDF file, 455 KB)",
+      reportLinkContent:
+        "Download our report on Integrative Thinking: The Guide to Becoming A Value-Adding CFO (PDF file, 4.0 MB)",
       iconPositions: {
         1: "top-6 left-1", // Top left
         2: "top-2 right-7", // Middle right
         3: "bottom-2 right-1", // Bottom right
       },
       popupImages: [
-        { id: 1, src: fwhat1, alt: "What popup image 1" },
-        { id: 2, src: fwhat2, alt: "What popup image 2" },
+        {
+          id: 1,
+          src: fwhat1,
+          alt: "Quote by Sharon Machado, Head of Sustainable Business at ACCA, and Yen-Pei Chen, Freelance integrated reporting consultant: Our complex world challenges CFOs to be forward-looking, adaptable, and think outside the box",
+          iconLabel:
+            "Click to read the quote by Sharon Machado and Yen-Pei Chen on CFO challenges",
+        },
+        {
+          id: 2,
+          src: fwhat2,
+          alt: "Diagram showing the five integrative-thinking capabilities in a 2x2 grid: Exploring, Co-creating, Empathizing, and Empowering, with Continually becoming spanning the center",
+          iconLabel:
+            "Click to view the infographic on integrative thinking capabilities of a finance leader",
+        },
         { id: 3, src: what3, alt: "What popup image 3" },
       ],
     },
     why: {
       title: "Why must a future-fit CFO be adaptable?",
-      description: "The future-fit CFO must be adaptable to effectively guide their organisation through complex, interconnected risks while identifying new opportunities. \nAs custodians of critical strategic information, adaptable CFOs are better equipped to ensure transparency, drive agile decision-making, and uphold accountability in a rapidly changing business landscape.",
+      description:
+        "The future-fit CFO must be adaptable to effectively guide their organisation through complex, interconnected risks while identifying new opportunities. \nAs custodians of critical strategic information, adaptable CFOs are better equipped to ensure transparency, drive agile decision-making, and uphold accountability in a rapidly changing business landscape.",
       image: why111,
-      altText: "Panoramic aerial view of a brightly lit, complex coastal city skyline at dusk, representing global complexity.", // ✅ UPDATED: Separate alt text
+      altText:
+        "Panoramic aerial view of a brightly lit coastal city skyline at dusk", // ✅ UPDATED: Separate alt text
       downloadId: "fsdf2",
       learnMoreId: "fslm2",
       downloadLink: fwhyflashcard,
       learnMoreLink: futurewhy1, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
+      flashcardContent:
+        "Download the flashcard on  Why must a future-fit CFO be adaptable? (PDF file, 133 KB)",
+      reportLinkContent:
+        "Download our report on Integrative Thinking: The Guide to Becoming A Value-Adding CFO (PDF file, 4.0 MB)",
       iconPositions: {
         1: "top-5 left-1", // Top left
         2: "top-5 right-2", // Middle right
         3: "bottom-2 right-1", // Bottom right
       },
       popupImages: [
-        { id: 1, src: fwhy2, alt: "Why popup image 1" },
-        { id: 2, src: fwhy1, alt: "Why popup image 2" },
+        {
+          id: 1,
+          src: fwhy2,
+          alt: "Diagram showing overlapping diamonds: Design thinking at top, with Open innovation, Systems thinking, Collaboration, Dealing with uncertainty, and Partnering for shared value inside. Asking questions in red at the center intersection",
+          iconLabel:
+            "Click to view the diagram on concepts that enable problem solving in an organization",
+        },
+        {
+          id: 2,
+          src: fwhy1,
+          alt: "Text excerpt: Becoming a value-adding CFO involves changing from Dr No to Dr How, shifting from binary opposing choices to dynamically working through how the organization might achieve its objectives. Source: Chief Value Officer report, ACCA and BDO 2023",
+          iconLabel:
+            "Click to read about the evolution of the CFO role from Dr No to Dr How",
+        },
         { id: 3, src: why3, alt: "Why popup image 3" },
       ],
     },
     who: {
       title: "Who are the key recipients of an organisation's value?",
-      description: "Finance leaders must consider a broad range of stakeholders who benefit from the organisation's performance. These include investors, customers, employees, communities and regulators. Creating sustainable value across all groups is fundamental to long-term business success and responsible leadership.",
+      description:
+        "Finance leaders must consider a broad range of stakeholders who benefit from the organisation's performance. These include investors, customers, employees, communities and regulators. Creating sustainable value across all groups is fundamental to long-term business success and responsible leadership.",
       image: who111,
-      altText: "A team of hikers ascending a snowy mountain ridge, representing stakeholders working towards a common goal.", // ✅ UPDATED: Separate alt text
+      altText: "Team of hikers ascending a snowy mountain ridge", // ✅ UPDATED: Separate alt text
       downloadId: "fsdf3",
       learnMoreId: "fslm3",
       downloadLink: fwhoflashcard,
       learnMoreLink: futurewho1, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
+      flashcardContent:
+        "Download the flashcard on Who are the key recipients of an organisation's value? (PDF file, 124 KB)",
+      reportLinkContent:
+        "Download our report on Chief  Value Officer – The Important Evolution of The CFO (PDF file, 3.8 MB)",
       iconPositions: {
         1: "top-2 left-6", // Top left
         2: "top-2 right-7 transform -translate-y-1/2", // Middle right
         3: "bottom-2 right-1", // Bottom right
       },
       popupImages: [
-        { id: 1, src: fwho1, alt: "Who popup image 1" },
-        { id: 2, src: fwho2, alt: "Who popup image 2" },
+        {
+          id: 1,
+          src: fwho1,
+          alt: "Quote by Clive Webb, Head of Business Management at ACCA: Creating and maintaining value is a cyclical activity with a process of return of value from stakeholders to enablers",
+          iconLabel:
+            "Click to read the quote by Clive Webb on creating and maintaining value",
+        },
+        {
+          id: 2,
+          src: fwho2,
+          alt: "Diagram showing five stakeholder groups and their value outcomes: Investors receive positive cash flow andprofit; Customers receive quality products and relationships; Employees receive good jobs and security; Community receives local benefits and infrastructure; Regulators receive compliance and risk management",
+          iconLabel:
+            "Click to understand the key recipients of value in an organization",
+        },
         { id: 3, src: what3, alt: "Who popup image 3" },
       ],
     },
     where: {
       title: "Where are finance professionals' roles changing?",
-      description: "CFOs are expanding their influence across eight critical areas including strategy and business acumen, risk and control, technology and data, leadership, supply chain, investor management, consulting, and transactions. This shift reflects the evolving demands on finance professionals to lead digital transformation, drive sustainable value, and navigate complexity with confidence. As innovation continues to reshape business, developing the right capabilities across these areas is essential to staying competitive and future-ready.",
+      description:
+        "CFOs are expanding their influence across eight critical areas including strategy and business acumen, risk and control, technology and data, leadership, supply chain, investor management, consulting, and transactions. This shift reflects the evolving demands on finance professionals to lead digital transformation, drive sustainable value, and navigate complexity with confidence. As innovation continues to reshape business, developing the right capabilities across these areas is essential to staying competitive and future-ready.",
       image: where111,
-      altText: "A person stands on a bridge overlooking a modern, illuminated cityscape, symbolising a changing global role.", // ✅ UPDATED: Separate alt text
+      altText:
+        "Person standing on a bridge overlooking a modern, illuminated cityscape", // ✅ UPDATED: Separate alt text
       downloadId: "fsdf4",
       learnMoreId: "fslm4",
       downloadLink: fwhereflashcard,
       learnMoreLink: futurewhere2, // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
+      flashcardContent:
+        "Download the flashcard on Where are finance professionals' roles changing? (PDF file, 141 KB)",
+      reportLinkContent:
+        "Download our report on Chief  Value Officer – The Important Evolution of The CFO (PDF file, 3.8 MB)",
       iconPositions: {
         1: "top-8 left-8", // Top left
         2: "top-8 right-9 transform -translate-y-1/2", // Middle right
         3: "bottom-2 right-1", // Bottom right
       },
       popupImages: [
-        { id: 1, src: fwhere1, alt: "Where popup image 1" },
-        { id: 2, src: fwhere2, alt: "Where popup image 2" },
+        {
+          id: 1,
+          src: fwhere1,
+          alt: "Quote by Sharon Machado and Yen-Pei Chen: The path to the CFO role could involve multiple sideways moves from one function to another, sector to another, or jurisdiction to another",
+          iconLabel:
+            "Click to read the quote about diverse career paths to the CFO role",
+        },
+        {
+          id: 2,
+          src: fwhere2,
+          alt: "Diagram showing Financial acumen at the center with eight connected areas: Transactions, Strategy and business acumen, Risk and control, Technology and data, Leadership, Supply chain, Investor management, and Consulting. Source: ACCA and IMA 2020",
+          iconLabel: "Click to understand the comprehensive role of the CFO",
+        },
         { id: 3, src: where3, alt: "Where popup image 3" },
       ],
     },
     how: {
       title: "How can organisations improve talent engagement and retention ",
-      description: "As technology, especially AI, reshapes roles, it's important to support the development of both digital capabilities and human-centred skills like creativity and judgement. Additionally, employers need to recognise that many employees are seeking better pay and clearer growth opportunities, often looking outside their organisations when these aren't available internally.",
+      description:
+        "As technology, especially AI, reshapes roles, it's important to support the development of both digital capabilities and human-centred skills like creativity and judgement. Additionally, employers need to recognise that many employees are seeking better pay and clearer growth opportunities, often looking outside their organisations when these aren't available internally.",
       image: How111,
-      altText: "Abstract overhead view of a plant with bright pink tentacle-like flowers floating on water.", // ✅ UPDATED: Separate alt text
+      altText:
+        "Abstract overhead view of a plant with bright pink tentacle-like flowers floating on water", // ✅ UPDATED: Separate alt text
       downloadId: "fsdf5",
       learnMoreId: "fslm5",
       downloadLink: fhowflashcard,
-      learnMoreLink: "https://stories.accaglobal.com/career-ladder-and-variety-of-work/index.html", // What tab learn more link
+      learnMoreLink:
+        "https://stories.accaglobal.com/career-ladder-and-variety-of-work/index.html", // What tab learn more link
       visibleIcons: [1, 2], // Configure which icons are visible for this tab
+      flashcardContent:
+        "Download the flashcard on How can organisations improve talent engagement and retention ? (PDF file, 162 KB)",
+      reportLinkContent:
+        "Read our report on Career ladder and variety of work (HTML page)",
       iconPositions: {
         1: "top-5 left-5", // Top left
         2: "top-5 right-9 transform -translate-y-1/2", // Middle right
         3: "bottom-2 right-1", // Bottom right
       },
       popupImages: [
-        { id: 1, src: fhow2, alt: "How popup image 1" },
-        { id: 2, src: fhow1, alt: "How popup image 2" },
+        {
+          id: 1,
+          src: fhow2,
+          alt: "Infographic showing 58% of respondents, represented by 10 person icons with 6 in red and 4 in gray, expecting their next career move to be outside their current organization",
+          iconLabel:
+            "Click to view statistics on respondents expecting their next career move",
+        },
+        {
+          id: 2,
+          src: fhow1,
+          alt: "Quote by Jamie Lyon, Head of Skills at ACCA: High employability confidence raises retention challenges, with 60% seeing their next role outside their current organization and 62% expecting to move within two years",
+          iconLabel:
+            "Click to read the quote by Jamie Lyon on high employability confidence among accountants",
+        },
         { id: 3, src: what3, alt: "How popup image 3" },
       ],
     },
   };
-
 
   const handleIconClick = (iconNumber: number) => {
     setActivePopup({ tab: activeTab, icon: iconNumber });
@@ -291,12 +405,12 @@ const future = () => {
   const themes = [
     {
       id: 1,
-      title: "Innovative Tech",
+      title: "Sustainable Business",
       image: theme3,
     },
     {
       id: 2,
-      title: "Future Skills",
+      title: "Innovative Tech",
       image: theme1,
     },
   ];
@@ -371,8 +485,17 @@ const future = () => {
         </div>
         <div className="margin-acca container mx-auto relative z-10 sustainable-banner">
           <div className="">
-            <h1 className="" style={{ fontSize: '70px', lineHeight: '60px', color: "#ffff", whiteSpace: "0%", fontWeight: 700 }}>
-              Future Skills<span style={{ color: '#D20024' }}>.</span>
+            <h1
+              className=""
+              style={{
+                fontSize: "70px",
+                lineHeight: "60px",
+                color: "#ffff",
+                whiteSpace: "0%",
+                fontWeight: 700,
+              }}
+            >
+              Future Skills<span style={{ color: "#D20024" }}>.</span>
             </h1>
           </div>
         </div>
@@ -381,58 +504,157 @@ const future = () => {
       {/* Main Content of the page */}
       <section className="pt-0 sm:pt-10 pb-6">
         <div className="custom-container">
-          <div className={`md:grid md:grid-cols-12 gap-6 max-w-7xl mx-auto mobile-flex transition-all duration-500 ${showContent ? 'content-fade-in opacity-100' : 'opacity-0'}`}>
-
-            {/* Sidebar for desktop*/}
-            <div className="col-span-2 space-y-2 sidebar-desktop">
+          <div
+            className={`md:grid md:grid-cols-12 gap-6 max-w-7xl mx-auto mobile-flex transition-all duration-500 ${
+              showContent ? "content-fade-in opacity-100" : "opacity-0"
+            }`}
+          >
+            {/* Sidebar Desktop for Future Skills Page */}
+            <div className="col-span-2 w-[11rem] sidebar-desktop border-r border-gray-300 max-md:hidden md:block">
+              {/* Back to Home */}
               <a href="/" className="block">
-  <div className="cursor-pointer back-to-home group">
-    <img
-      src={backtohome}
-      alt="Back arrow"
-      className="arrow inline-block align-middle mr-1 transition-transform duration-300 ease-in-out group-hover:-translate-x-2"
-      style={{ width: '22px', height: '16px' }}
-    />
-    <span style={{ fontSize: '16px', fontWeight: '500' }}>Back to</span>
-    <br />
-    <span className="home-align" style={{ fontSize: '22px', fontWeight: '500' }}> Home</span>
-  </div>
-</a>
+                <div className="cursor-pointer back-to-home group">
+                  <img
+                    src={backtohome}
+                    alt="Back arrow"
+                    className="arrow inline-block align-middle mr-1 transition-transform duration-300 ease-in-out group-hover:-translate-x-2"
+                    style={{ width: "22px", height: "16px" }}
+                  />
+                  <span style={{ fontSize: "16px", fontWeight: "500" }}>
+                    Back to
+                  </span>
+                  <br />
+                  <span
+                    className="home-align"
+                    style={{ fontSize: "22px", fontWeight: "500" }}
+                  >
+                    Home
+                  </span>
+                </div>
+              </a>
 
-              <a href="/flashcards" className="cursor-pointer block">
-                <img
-                  src={accaflashcard}
-                  alt="Acca Flashcards"
-                  className="w-full h-full object-cover ips-image"
-                />
-              </a>
-              <a href="/sustainable" className="cursor-pointer block img-class">
-                <img
-                  src={sustainlight}
-                  alt="Sustainable Business"
-                  className="w-full h-full object-cover ips-image"
-                />
-              </a>
-              <a href="/innovative" className="cursor-pointer block">
-                <img
-                  src={inno}
-                  alt="Innovative Tech"
-                  className="w-full h-full object-cover ips-image"
-                />
-              </a>
-              <a href="#" className="cursor-pointer block img-class">
-                <img
-                  src={futuredark}
-                  alt="Future SKills"
-                  className="w-full h-full object-cover ips-image"
-                />
-              </a>
+              {/* Navigation Items */}
+              <nav aria-label="Main navigation">
+                <ul className="overflow-hidden list-none p-0 m-0">
+                  {/* Interview Prep Series - Top Level */}
+                  <li
+                    className={`border-t border-b border-gray-300 border-l-0 bg-white hover:bg-gray-50 ${
+                      currentRoute === "/interview"
+                        ? "mr-[-1px]"
+                        : ""
+                    }`}
+                  >
+                    <div
+                      className={
+                        currentRoute === "/interview"
+                          ? ""
+                          : "border-r-4 border-r-gray-400"
+                      }
+                    >
+                      <a
+                        href="/interview"
+                        className={`
+              flex items-center px-3 py-2
+              min-h-[32px]
+              w-full
+              text-[13px] leading-4 ml-2
+              ${
+                currentRoute === "/interview"
+                  ? "text-black font-medium"
+                  : "text-gray-500 font-normal hover:text-gray-700"
+              }
+            `}
+                      >
+                        Interview Prep Series
+                      </a>
+                    </div>
+                  </li>
+
+                  {/* ACCA Flashcards - Top Level with Children */}
+                  <li
+                    className={`border-b border-gray-300 border-l-0 bg-white ${
+                      currentRoute === "/flashcards" ? "mr-[-1px]" : ""
+                    }`}
+                  >
+                    {/* ACCA Flashcards Parent Link - Conditional border */}
+                    <div
+                      className={
+                        currentRoute === "/flashcards"
+                          ? ""
+                          : "border-r-4 border-r-gray-400"
+                      }
+                    >
+                      <a
+                        href="/flashcards"
+                        className={`
+              flex items-center px-3 py-2
+              min-h-[32px]
+              w-full
+              text-[13px] leading-4 ml-2
+              ${
+                currentRoute === "/flashcards"
+                  ? "text-black font-medium"
+                  : "text-gray-500 font-normal hover:text-gray-700"
+              }
+            `}
+                      >
+                        ACCA Flashcards
+                      </a>
+                    </div>
+
+                    {/* ACCA Flashcards Children - Nested list with NO border */}
+                    <ul className="list-none p-0 m-0 border-t border-gray-200">
+                      {[
+                        {
+                          path: "/sustainable",
+                          label: "Sustainable Business",
+                        },
+                        { path: "/innovative", label: "Innovative Tech" },
+                        { path: "/future", label: "Future Skills" },
+                      ].map((item) => (
+                        <li
+                          key={item.path}
+                          className={`border-b border-gray-200 last:border-b-0 bg-white hover:bg-gray-50 ${
+                            currentRoute === item.path ? "mr-[-1px]" : ""
+                          }`}
+                        >
+                          <a
+                            href={item.path}
+                            className={`
+                  flex items-center px-3 py-2
+                  min-h-[32px]
+                  w-full
+                  pl-8
+                  text-[13px] leading-4
+                  ${
+                    currentRoute === item.path
+                      ? "text-black font-semibold"
+                      : "text-gray-500 font-normal hover:text-gray-700"
+                  }
+                `}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
             </div>
 
             {/* Sidebar Mobile*/}
             <div className="w-screen max-w-none col-span-2 space-y-0 sidebar-mobile display-side relative left-1/2 -translate-x-1/2 sm:static sm:w-full sm:max-w-full">
               <a href="" className="cursor-pointer block navigation">
-                <a href="/"><span> Home /</span></a> <a href="flashcards"><span>ACCA PI Flashcards /</span></a><a href="#"><span style={{ fontWeight: '600' }}> Future Skills</span></a>
+                <a href="/">
+                  <span> Home /</span>
+                </a>{" "}
+                <a href="flashcards">
+                  <span>ACCA PI Flashcards /</span>
+                </a>
+                <a href="#">
+                  <span style={{ fontWeight: "600" }}> Future Skills</span>
+                </a>
               </a>
             </div>
 
@@ -444,10 +666,11 @@ const future = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`tab-gap button-style flex items-center px-6 py-3 transition-colors duration-200 ${activeTab === tab.id
-                      ? " font-bold"
-                      : "border-color text-gray-500 hover:text-gray-700 hover:border-gray-300"
-                      }`}
+                    className={`tab-gap button-style flex items-center px-6 py-3 transition-colors duration-200 ${
+                      activeTab === tab.id
+                        ? " font-bold"
+                        : "border-color text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                    }`}
                   >
                     <span className="mr-2">{tab.icon}</span>
                     {tab.label}
@@ -458,7 +681,6 @@ const future = () => {
 
               {/* Tab Content */}
               <div className="grid md:grid-cols-[65%_35%] gap-6 max-w-7xl mx-auto mobile-gap">
-
                 {/* Left Content */}
                 <div className="space-y-6">
                   <h2 className="h2-fonts h2-tabs">
@@ -466,23 +688,39 @@ const future = () => {
                     <span style={{ color: "#C80000" }}>?</span>
                   </h2>
 
-                  <p className="tabs-para">
-                    {content.description} 
-                  </p>
+                  <p className="tabs-para">{content.description}</p>
 
-                  <div className="flex space-x-6 pt-4 tabs-links">
+                  <div className="flex flex-col space-y-3 pt-0 tabs-links">
                     <span className="flex">
                       <a
                         id={content.learnMoreId}
                         href={content.learnMoreLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        style={{ fontSize: "15px" }}
                         className="text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-200 flex items-center"
                       >
-                        Click here to learn more
+                        PI Report: {contentData[activeTab].reportLinkContent}
                       </a>
-                      <span className="inline-flex items-center ml-2" style={{ color: '#C80000' }}>
-                        <img src={arrow} className="w-4 h-4 pt-1" />
+                      <span
+                        className="inline-flex items-start ml-2 mt-1"
+                        style={{ color: "rgb(200, 0, 0)" }}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 12h14M13 5l7 7-7 7"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
                       </span>
                     </span>
 
@@ -492,15 +730,32 @@ const future = () => {
                         href={content.downloadLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        style={{ fontSize: "15px" }}
                         className="text-red-600 hover:text-red-700 font-medium text-sm transition-colors duration-200 flex items-center"
                       >
-                        Download Flashcard
+                        Flashcard: {contentData[activeTab].flashcardContent}
                       </a>
-                      <span className="inline-flex items-center ml-2" style={{ color: '#C80000' }}>
-                        <img src={arrow} className="w-4 h-4 pt-1" />
+                      <span
+                        className="inline-flex items-start ml-2 mt-1"
+                        style={{ color: "rgb(200, 0, 0)" }}
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 12h14M13 5l7 7-7 7"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
                       </span>
                     </span>
-
                   </div>
                 </div>
 
@@ -516,48 +771,77 @@ const future = () => {
                     {/* Interactive Icons - Dynamic positioning based on active tab */}
                     <div className="absolute inset-0 position-set">
                       {content.visibleIcons.map((iconNumber) => (
-                        <div key={iconNumber} className={`absolute ${content.iconPositions[iconNumber]}`}>
+                        <div
+                          key={iconNumber}
+                          className={`absolute ${content.iconPositions[iconNumber]}`}
+                        >
                           <button
-                            ref={(el) => buttonRefs.current[iconNumber] = el}
+                            ref={(el) => (buttonRefs.current[iconNumber] = el)}
                             onClick={() => handleIconClick(iconNumber)}
+                            aria-label={
+                              contentData[activeTab as keyof typeof contentData]
+                                .popupImages[iconNumber - 1].iconLabel
+                            }
                             className="w-7 h-7 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-50 transition-colors duration-200 group"
                           >
-                            <Plus className="h-5 w-5 border border-[#CF001B] text-[#CF001B] rounded-full font-bold cssforthis" />
+                            <Plus
+                              className="h-5 w-5 border border-[#CF001B] text-[#CF001B] rounded-full font-bold cssforthis"
+                              aria-hidden="true"
+                            />
                           </button>
 
                           {/* Popup for current icon */}
-                          {activePopup && activePopup.tab === activeTab && activePopup.icon === iconNumber && (
-                            <div
-                              ref={popupRef}
-                              className="absolute top-full right-0 mt-2 z-50 bg-white shadow-2xl overflow-hidden mobile-popup-center"
-                              style={{
-                                width: popupSizes[activePopup.tab as keyof typeof popupSizes][activePopup.icon as keyof typeof popupSizes[keyof typeof popupSizes]],
-                                maxWidth: '90vw',
-                                ...(iconNumber === 3 && { right: '-45px' })
-                              }}
-                            >
-                              <div className="relative">
-                                <button
-                                  onClick={closePopup}
-                                  className="absolute top-2 right-2 z-10 w-6 h-6 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center max-[425px]:flex"
-                                >
-                                  <X className="h-4 w-4" />
-                                </button>
+                          {activePopup &&
+                            activePopup.tab === activeTab &&
+                            activePopup.icon === iconNumber && (
+                              <div
+                                ref={popupRef}
+                                className="absolute top-full right-0 mt-2 z-50 bg-white shadow-2xl overflow-hidden mobile-popup-center"
+                                style={{
+                                  width:
+                                    popupSizes[
+                                      activePopup.tab as keyof typeof popupSizes
+                                    ][
+                                      activePopup.icon as keyof (typeof popupSizes)[keyof typeof popupSizes]
+                                    ],
+                                  maxWidth: "90vw",
+                                  ...(iconNumber === 3 && { right: "-45px" }),
+                                }}
+                              >
+                                <div className="relative">
+                                  <button
+                                    onClick={closePopup}
+                                    className="absolute top-2 right-2 z-10 w-6 h-6 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center max-[425px]:flex"
+                                  >
+                                    <X className="h-4 w-4" />
+                                  </button>
 
-                                <div className="">
-                                  <img
-                                    src={contentData[activePopup.tab as keyof typeof contentData].popupImages[activePopup.icon - 1].src}
-                                    alt={contentData[activePopup.tab as keyof typeof contentData].popupImages[activePopup.icon - 1].alt}
-                                    className="w-full h-auto object-contain rounded-lg"
-                                    onError={(e) => {
-                                      console.error('Image failed to load:', e.currentTarget.src);
-                                      e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMThweCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4=';
-                                    }}
-                                  />
+                                  <div className="">
+                                    <img
+                                      src={
+                                        contentData[
+                                          activePopup.tab as keyof typeof contentData
+                                        ].popupImages[activePopup.icon - 1].src
+                                      }
+                                      alt={
+                                        contentData[
+                                          activePopup.tab as keyof typeof contentData
+                                        ].popupImages[activePopup.icon - 1].alt
+                                      }
+                                      className="w-full h-auto object-contain rounded-lg"
+                                      onError={(e) => {
+                                        console.error(
+                                          "Image failed to load:",
+                                          e.currentTarget.src
+                                        );
+                                        e.currentTarget.src =
+                                          "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMThweCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBmb3VuZDwvdGV4dD48L3N2Zz4=";
+                                      }}
+                                    />
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          )}
+                            )}
                         </div>
                       ))}
                     </div>
@@ -571,7 +855,9 @@ const future = () => {
 
               {/* Related Themes */}
               <div className="mt-12 theme-css">
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Related Themes</h4>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Related Themes
+                </h3>
 
                 {/* Divider line */}
                 <div className="bg-[#CF001B] h-[2px] w-[60px] mb-4"></div>
@@ -581,11 +867,19 @@ const future = () => {
                   <div className="flex gap-6 justify-start">
                     {themes.map((theme) => (
                       <div key={theme.id} className="w-1/2 overflow-hidden">
-                        <a href={theme.id === 1 ? "/sustainable" : "/innovative"} className="cursor-pointer block">
+                        <a
+                          href={
+                            theme.id === 1
+                              ? "/sustainable"
+                              : "/innovative"
+                          }
+                          className="cursor-pointer block"
+                        >
                           <div className="relative">
+                            {/* Image */}
                             <img
                               src={theme.image}
-                              alt={theme.title}
+                              // alt={theme.title}
                               className="w-full h-[200px] object-cover"
                             />
                           </div>
