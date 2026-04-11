@@ -20,7 +20,7 @@ import backtohome from "../assets/image/backtohome.png";
 import Learn_more from "../assets/image/Learn_more.pdf";
 import { FiSearch, FiUser, FiMapPin, FiSettings } from "react-icons/fi";
 import { TbBulb } from "react-icons/tb";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { ArrowRight, Plus } from "lucide-react";
 import { useLocation } from "react-router-dom"; // **ADDED: Import useLocation to check navigation source**
 import why from "../assets/image/why.png";
@@ -67,6 +67,10 @@ const Sustainable = () => {
   const location = useLocation();
   const cameFromFlashcard = location.state?.fromFlashcard === true;
   const currentRoute = location.pathname;
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
