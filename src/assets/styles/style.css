@@ -434,7 +434,7 @@ p.mb-4.link-class {
         display: none;
     }
 
-    .careers h2 {
+    .careers .career-text {
         width: 70%;
     }
 }
@@ -467,7 +467,7 @@ h3.h3-fonts {
         margin-bottom: 10px;
     }
 
-    .careers h2 {
+    .careers .career-text {
         font-size: 24px !important;
         font-weight: 500;
         line-height: 40px !important;
@@ -478,7 +478,7 @@ h3.h3-fonts {
         flex-direction: column;
     }
 
-    .careers h2 {
+    .careers .career-text {
         margin-bottom: 30px;
     }
 
@@ -567,11 +567,11 @@ h3.h3-fonts {
     height: 40px !important;
 }
 
-.careers h2 {
+/* .careers .career-text {
     font-size: 56px;
     font-weight: 500;
     line-height: 64px;
-}
+} */
 
 .careers a {
     border: 1px solid #fff;
@@ -1506,7 +1506,7 @@ span {
 }
 
 
-@media only screen and (min-width:480px) {
+@media (max-width: 480px) {
 p {
     font-weight: 500;
     font-size: 20px !important;

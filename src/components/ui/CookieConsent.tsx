@@ -24,7 +24,7 @@ const CookieConsent = () => {
     // update Consent Mode v2 signals
     updateConsent({
       analytics: prefs.performance,
-      ads: prefs.targeting
+      ads: prefs.targeting,
     });
 
     // If targeting allowed, load Meta Pixel
@@ -45,7 +45,7 @@ const CookieConsent = () => {
 
     updateConsent({
       analytics: true,
-      ads: true
+      ads: true,
     });
 
     initMetaPixel();
@@ -63,7 +63,7 @@ const CookieConsent = () => {
 
     updateConsent({
       analytics: false,
-      ads: false
+      ads: false,
     });
   };
 
@@ -74,7 +74,7 @@ const CookieConsent = () => {
 
     updateConsent({
       analytics: cookiePrefs.performance,
-      ads: cookiePrefs.targeting
+      ads: cookiePrefs.targeting,
     });
 
     if (cookiePrefs.targeting) {
@@ -107,28 +107,61 @@ const CookieConsent = () => {
         <div>
           <button className="cookie-close" onClick={() => setIsVisible(false)}>×</button>
           <p><strong>Manage Cookie Preferences</strong></p>
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              margin: "12px 0",
+            }}
+          >
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                color: "#333",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={cookiePrefs.functional}
+                onChange={() => toggle("functional")}
+              />{" "}
+              Functional
+            </label>
 
-          <label>
-            <input type="checkbox"
-              checked={cookiePrefs.functional}
-              onChange={() => toggle("functional")}
-            /> Functional
-          </label>
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                color: "#333",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={cookiePrefs.performance}
+                onChange={() => toggle("performance")}
+              />{" "}
+              Performance / Analytics
+            </label>
 
-          <label>
-            <input type="checkbox"
-              checked={cookiePrefs.performance}
-              onChange={() => toggle("performance")}
-            /> Performance / Analytics
-          </label>
-
-          <label>
-            <input type="checkbox"
-              checked={cookiePrefs.targeting}
-              onChange={() => toggle("targeting")}
-            /> Targeting / Advertising
-          </label>
-
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                color: "#333",
+              }}
+            >
+              <input
+                type="checkbox"
+                checked={cookiePrefs.targeting}
+                onChange={() => toggle("targeting")}
+              />{" "}
+              Targeting / Advertising
+            </label>
+          </div>
           <button onClick={handleSavePrefs}>Save Preferences</button>
         </div>
       )}

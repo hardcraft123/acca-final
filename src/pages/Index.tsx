@@ -356,9 +356,16 @@ const Index = () => {
       {/* ACCA Careers Section */}
       <section className="bg-black py-12 careers">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <h2 className="text-white">
+          <p
+            className="text-white career-text"
+            style={{
+              fontSize: "56px",
+              fontWeight: 500,
+              lineHeight: "64px",
+            }}
+          >
             Connect your learning to real opportunities with ACCA Careers
-          </h2>
+          </p>
 
           <a
             href="https://jobs.accaglobal.com/"
