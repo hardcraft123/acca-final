@@ -7,12 +7,21 @@ import {
   ToastTitle,
   ToastViewport,
 } from "@/components/ui/toast"
+import { useEffect } from "react"
 
 export function Toaster() {
   const { toasts } = useToast()
 
+  useEffect(() => {
+    // Radix renders an internal div with role="region" — target it directly
+    const regionDiv = document.querySelector('div[role="region"][aria-label^="Notifications"]')
+    if (regionDiv) {
+      regionDiv.setAttribute("aria-hidden", "true")
+    }
+  }, [])
+
   return (
-    <ToastProvider>
+    <ToastProvider aria-hidden="true">
       {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
           <Toast key={id} {...props}>
