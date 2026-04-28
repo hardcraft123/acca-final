@@ -11,7 +11,7 @@ const Header = () => {
         <a href="/" className="inline-block">
           <img
             src={logoOne}
-            alt="ACCA logo"
+            alt="Industrial welding background"
             className="this-img w-full h-full object-cover opacity-100"
           />
         </a>
