@@ -218,7 +218,7 @@ const Flashcards = () => {
                   draggable
                   tabIndex={0}
                   role="button"
-                  aria-label="Open Sustainable Module"
+                  aria-label="Open Innovative Tech Module"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       navigate("/sustainable-business", {
@@ -243,7 +243,7 @@ const Flashcards = () => {
                   draggable
                   tabIndex={0}
                   role="button"
-                  aria-label="Open Sustainable Module"
+                  aria-label="Open Future Skills Module"
                   onKeyDown={(e) => {
                     if (e.key === "Enter" || e.key === " ") {
                       navigate("/sustainable-business", {
