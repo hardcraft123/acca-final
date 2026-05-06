@@ -880,7 +880,7 @@ const Sustainable = () => {
                             {/* Image */}
                             <img
                               src={theme.image}
-                              // alt={theme.title}
+                              alt="" // alt={theme.title}
                               className="w-full h-[200px] object-cover"
                             />
                           </div>
