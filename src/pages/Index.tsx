@@ -54,7 +54,8 @@ const Index = () => {
         <div className="absolute inset-0">
           <img
             src={Banner}
-            alt="ACCA Virtual Skills Platform banner featuring white text on a red wall beside a lit escalator."
+            // alt="ACCA Virtual Skills Platform banner featuring white text on a red wall beside a lit escalator."
+            alt=""
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0"></div>
@@ -247,11 +248,11 @@ const Index = () => {
           {/* Divider line */}
           <div className="bg-[#ffffff] h-[2px] w-[64px] max-[425px]:w-[64px] mb-12"></div>
 
-          <div className="grid md:grid-cols-5 [@media(max-width:425px)]:grid-cols-2 gap-0 max-w-8xl mx-auto key-skills relative">
-            <div className="text-center">
-              <h3 className="mb-6">
+          <ol className="grid md:grid-cols-5 [@media(max-width:425px)]:grid-cols-2 gap-0 max-w-8xl mx-auto key-skills relative">
+            <li className="text-center">
+              <p className="mb-6 list-text">
                 Optimised<br></br> interview readiness
-              </h3>
+              </p>
               <div className="w-16 h-16 mx-auto mb-4">
                 <img
                   src={optimized}
@@ -260,14 +261,14 @@ const Index = () => {
                   style={{}}
                 />
               </div>
-            </div>
+            </li>
 
             {/* Vertical divider after first column */}
-            <div className="relative text-center">
+            <li className="relative text-center">
               <div className="absolute -left-px top-1/2 transform -translate-y-1/2 w-px h-16 bg-white hidden md:block"></div>
-              <h3 className="mb-6">
+              <p className="mb-6 list-text">
                 Impactful<br></br> personal branding
-              </h3>
+              </p>
               <div className="w-16 h-16 mx-auto mb-4">
                 <img
                   src={impactful}
@@ -276,14 +277,14 @@ const Index = () => {
                   style={{}}
                 />
               </div>
-            </div>
+            </li>
 
             {/* Vertical divider after second column */}
-            <div className="relative text-center">
+            <li className="relative text-center">
               <div className="absolute -left-px top-1/2 transform -translate-y-1/2 w-px h-16 bg-white hidden md:block"></div>
-              <h3 className="mb-6">
+              <p className="mb-6 list-text">
                 Flexible and<br></br>analytical thinking
-              </h3>
+              </p>
               <div className="w-16 h-16 mx-auto mb-4">
                 <img
                   src={adaptive}
@@ -292,14 +293,14 @@ const Index = () => {
                   style={{}}
                 />
               </div>
-            </div>
+            </li>
 
             {/* Vertical divider after third column */}
-            <div className="relative text-center">
+            <li className="relative text-center">
               <div className="absolute -left-px top-1/2 transform -translate-y-1/2 w-px h-16 bg-white hidden md:block"></div>
-              <h3 className="mb-6">
+              <p className="mb-6 list-text">
                 Effective<br></br> communication
-              </h3>
+              </p>
               <div className="w-16 h-16 mx-auto mb-4">
                 <img
                   src={effective}
@@ -308,15 +309,15 @@ const Index = () => {
                   style={{}}
                 />
               </div>
-            </div>
+            </li>
 
             {/* for desktop */}
             {/* Vertical divider after fourth column */}
-            <div className="relative text-center readiness readi-desk">
+            <li className="relative text-center readiness readi-desk">
               <div className="absolute -left-px top-1/2 transform -translate-y-1/2 w-px h-16 bg-white hidden md:block"></div>
-              <h3 className="mb-6">
+              <p className="mb-6 list-text">
                 Ethical<br></br> decision-making
-              </h3>
+              </p>
               <div className="w-16 h-16 mx-auto mb-4">
                 <img
                   src={ethical}
@@ -325,15 +326,15 @@ const Index = () => {
                   style={{}}
                 />
               </div>
-            </div>
-          </div>
+            </li>
+          </ol>
 
           {/* For mobile */}
-          <div className="relative text-center readiness readi-mobile">
-            <div className="absolute -left-px top-1/2 transform -translate-y-1/2 w-px h-16 bg-white hidden md:block"></div>
-            <h3 className="mb-6">
+          <ol className="relative text-center readiness readi-mobile">
+            <li className="absolute -left-px top-1/2 transform -translate-y-1/2 w-px h-16 bg-white hidden md:block"></li>
+            <p className="mb-6 list-text">
               Ethical<br></br> decision-making
-            </h3>
+            </p>
             <div className="w-16 h-16 mx-auto mb-4">
               <img
                 src={ethical}
@@ -342,7 +343,7 @@ const Index = () => {
                 style={{}}
               />
             </div>
-          </div>
+          </ol>
 
           <div className="text-center mt-2">
             <p className=" max-w-4xl mx-auto this-para">

@@ -552,7 +552,7 @@ h3.h3-fonts {
     padding-bottom: 55px !important;
 }
 
-.key-skills-section h3 {
+.key-skills-section .list-text {
     color: #ffffff;
     line-height: 32px;
     font-size: 24px;
@@ -1513,6 +1513,17 @@ p {
     line-height: 28px !important;
 }
 
+.key-skills-section .list-text {
+    font-size:24px !important;
+    line-height: 32px !important;
+}
+
+}
+
+@media (max-width: 425px) {
+    .key-skills-section .list-text {
+        font-size:22px !important;
+    }
 }
 
 
